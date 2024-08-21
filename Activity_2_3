@@ -1,0 +1,28 @@
+#include <iostream>
+#include <conio.h>
+using namespace std;
+
+int main() 
+{
+    int n1;
+	int n2;
+	int n3;
+
+    cout << "Please enter your 3 numbers: ";
+	cin >> n1;
+	cin >> n2;
+	cin >> n3;
+
+	cout << "Your numbers forward: \n";
+	cout << n1 << endl;
+	cout << n2 << endl;
+	cout << n3 << endl;
+
+	cout << "Your numbers reversed: \n";
+	cout << n3 << endl;
+	cout << n2 << endl;
+	cout << n1 << endl;
+   
+	getch();
+    return 0;
+}
