@@ -1,0 +1,662 @@
+#include <iostream>
+#include <conio.h>
+#include <string>
+#include <string.h>
+
+	using namespace std;
+
+const int numoneRoom = 6;
+const int numtwoRoom = 6;
+const int numthreeRoom = 6;
+const int roomcapacity = 50;
+
+
+
+struct Room 
+{
+	int numberone,numbertwo,numberthree, numofstudents, newnumofstudents;
+	bool available;
+	string section, time, day, newsection, newtime, newday;
+};
+struct secondfloor
+{
+	int numberone,numbertwo,numberthree, numofstudents, newnumofstudents;
+	bool available;
+	string section, time, day, newsection, newtime, newday;
+};
+struct thirdfloor
+{
+	int numberone,numbertwo,numberthree, numofstudents, newnumofstudents;
+	bool available;
+	string section, time, day, newsection, newtime, newday;
+};
+
+void printmessage ()
+{
+		cout << "                           ===========================================================================" << endl;
+		cout << "                                   UNIVERSITY        CLASSROOM     AVAILABILITY       SYSTEM" << endl;
+		cout << "                           ===========================================================================" << endl;
+		cout << endl;
+}
+void IntoneRooms(Room rooms[numoneRoom])
+{
+	for (int i = 0; i < numoneRoom; i++)
+	{
+	if (rooms[i].numberone = i + 101)
+		rooms[i].available = true;
+		rooms[i].day = " ";
+		rooms[i].time = " ";
+		rooms[i].section = " ";
+		rooms[i].numofstudents;
+	}
+}
+void InttwoRooms(secondfloor floors[numtwoRoom])
+{
+	for (int j = 0; j < numtwoRoom; j++)
+	{
+	if (floors[j].numbertwo = j + 201)
+		floors[j].available = true;
+		floors[j].day = " ";
+		floors[j].time = " ";
+		floors[j].section = " ";
+		floors[j].numofstudents;
+	}
+}
+void IntthreeRooms(thirdfloor place[numthreeRoom])
+{
+	for (int k = 0; k < numthreeRoom; k++)
+		{
+	if (place[k].numberthree = k + 301)
+		place[k].available = true;
+		place[k].day = " ";
+		place[k].time = " ";
+		place[k].section = " ";
+		place[k].numofstudents;
+	}
+}
+		
+void DisplayoneRooms(const Room rooms[]) 
+{
+	int numofstudents, newnumofstudents;
+    for (int i = 0; i < numoneRoom; i++) 
+	{
+			cout << "                                                       Room " << rooms[i].numberone << " is ";
+        if (rooms[i].available) 
+		{
+			cout << " Available " << "\n";
+        } 
+		else
+		{
+			cout << "Already Occupied by: "<< endl <<"\t\t\t\t\t\t\t" << rooms[i].section << " on " << rooms[i].day << " at " << rooms[i].time << " with a capacity of " << rooms[i].numofstudents << "\n";
+			  if (rooms[i].newsection != "" && rooms[i].newday != "" && rooms[i].newtime != "")
+            {
+                cout << "\t\t\t\t\t\t\t" << rooms[i].newsection << " on " << rooms[i].newday << " at " << rooms[i].newtime << " with a capacity of " << rooms[i].newnumofstudents << "\n";
+            }
+        }
+    }  
+}
+
+void DisplaytwoRooms(const secondfloor floors[])
+{
+	for (int j = 0; j < numtwoRoom; j++) 
+	{
+			cout << "                                                       Room " << floors[j].numbertwo << " is ";
+        if (floors[j].available) 
+		{
+			cout << " Available " << "\n";
+        } 
+		else
+		{
+			cout << "Already Occupied by: " << " \n " <<"\t\t\t\t\t\t\t" << floors[j].section << " on " << floors[j].day << " at " << floors[j].time << " with a capacity of " << floors[j].numofstudents << "\n";
+			  if (floors[j].newsection != "" && floors[j].newday != "" && floors[j].newtime != "")
+            {
+                cout <<"\t\t\t\t\t\t\t" << floors[j].newsection << " on " << floors[j].newday << " at " << floors[j].newtime << " with a capacity of " << floors[j].newnumofstudents << "\n";
+            }
+        }
+    }  
+}
+
+void DisplaythreeRooms(const thirdfloor place[])
+{
+	for (int k = 0; k < numthreeRoom; k++) 
+	{
+			cout << "                                                       Room " << place[k].numberthree << " is ";
+        if (place[k].available) 
+		{
+			cout << " Available " << "\n";
+        } 
+		else
+		{
+			cout << "Already Occupied by: " << " \n " << "\t\t\t\t\t\t\t" << place[k].section << " on " << place[k].day << " at " << place[k].time << " with a capacity of " << place[k].numofstudents << "\n";
+			  if (place[k].newsection != "" && place[k].newday != "" && place[k].newtime != "")
+            {
+                cout << "\t\t\t\t\t\t\t" << place[k].newsection << " on " << place[k].newday << " at " << place[k].newtime << " with a capacity of " << place[k].newnumofstudents << "\n";
+            }
+        }
+    }  
+}
+
+void Bookrooms(Room rooms[])
+{
+	int roomNumber, numofstudents;
+	string section, time, day;
+	cout << endl;
+	cout << "                                   [code]             [room]                    [day] " << endl;
+	cout << "                                     [1]             Room 101                   Sunday  " << endl;
+	cout << "                                     [2]             Room 102                   Monday " << endl;
+	cout << "                                     [4]             Room 104                   Wednesday" << endl;
+	cout << "                                     [5]             Room 105                   Thursday" << endl;
+	cout << "                                     [6]             Room 106                   Friday" << endl;
+	cout << "                                                                                Saturday" << endl;
+	cout << endl;
+	cout << "                           ===========================================================================" << endl;
+	cout << "                                                      Enter Code for Room: ";
+	cin >> roomNumber;
+
+	if(roomNumber < 1 || roomNumber > numoneRoom)
+	{
+		cout << "Error. Room Number is not Valid" << "\n";
+		return;
+	}
+	
+    if (!rooms[roomNumber - 1].available) 
+	{
+        cout << "                     [ Room 10" << roomNumber << " is already Occupied, if you want to book in room " << roomNumber << " choose OPTION [3] to Rebook a Room. ]" << endl;
+    } 	
+    
+	else 
+	{
+		cout << "                                                      Enter Day: ";
+		cin.ignore();
+		cin >> day;
+		cout << "                                                      Enter Time: ";
+		cin.ignore();
+		getline(cin,time);
+        cout << "                                                      Enter Section: ";
+        getline(cin,section);
+        
+        do {
+        cout << "                                                      Enter Capacity [1 - 50 only]: ";
+        cin >> numofstudents;
+	    } while (roomcapacity < numofstudents);	
+	
+	
+        rooms[roomNumber - 1].available = false;
+        rooms[roomNumber - 1].section = section;
+		rooms[roomNumber - 1].day = day;
+		rooms[roomNumber - 1].time = time;
+		rooms[roomNumber - 1].numofstudents = numofstudents;
+		cout << endl;
+        cout <<"                     [ Successfully Booked Room 10" << roomNumber << " by " << section << "on " << day << " at " << time << " with a capacity of " << numofstudents << " ]\n";
+		cout << endl;
+    }
+    
+}
+
+void Bookrooms(secondfloor floors[])
+{
+	int roomNumber, numofstudents, day;
+	string section, time;
+	cout << "                                   [code]             [room]                    [day] " << endl;
+	cout << "                                     [1]             Room 201                   Sunday  " << endl;
+	cout << "                                     [2]             Room 202                   Monday " << endl;
+	cout << "                                     [4]             Room 204                   Wednesday" << endl;
+	cout << "                                     [5]             Room 205                   Thursday" << endl;
+	cout << "                                     [6]             Room 206                   Friday" << endl;
+	cout << "                                                                                Saturday" << endl;
+	cout << endl;
+	cout << "                           ===========================================================================" << endl;
+	cout << "                                                      Enter Code for Room: ";
+	cin >> roomNumber;
+
+	if(roomNumber < 1 || roomNumber > numoneRoom)
+	{
+		cout << "Error. Room Number is not Valid" << "\n";
+		return;
+	}
+	
+    if (!floors[roomNumber - 1].available) 
+	{
+        cout << "                     [ Room 20" << roomNumber << " is already Occupied, if you want to book in room " << roomNumber << " choose OPTION [3] to Rebook a Room. ]" << endl;
+    } 	
+    
+	else 
+	{
+		cout << "                                                      Enter Day: ";
+		cin.ignore();
+		cin >> day;
+		cout << "                                                      Enter Time: ";
+		cin.ignore();
+		getline(cin,time);
+        cout << "                                                      Enter Section: ";
+        getline(cin,section);
+        
+        do {
+        cout << "                                                      Enter Capacity [1 - 50 only]: ";
+        cin >> numofstudents;
+	    } while (roomcapacity < numofstudents);	
+	
+	
+        floors[roomNumber - 1].available = false;
+        floors[roomNumber - 1].section = section;
+		floors[roomNumber - 1].day = day;
+		floors[roomNumber - 1].time = time;
+		floors[roomNumber - 1].numofstudents = numofstudents;
+       	cout << endl;
+        cout <<"                     [ Successfully Booked Room 20" << roomNumber << " by " << section << "on " << day << " at " << time << " with a capacity of " << numofstudents << " ]\n";
+		cout << endl;
+	}
+    
+}
+
+void Bookrooms(thirdfloor place[])
+{
+	int roomNumber, numofstudents, day;
+	string section, time;
+	cout << "                                   [code]             [room]                    [day] " << endl;
+	cout << "                                     [1]             Room 301                   Sunday  " << endl;
+	cout << "                                     [2]             Room 302                   Monday " << endl;
+	cout << "                                     [4]             Room 304                   Wednesday" << endl;
+	cout << "                                     [5]             Room 305                   Thursday" << endl;
+	cout << "                                     [6]             Room 306                   Friday" << endl;
+	cout << "                                                                                Saturday" << endl;
+	cout << endl;
+	cout << "                           ===========================================================================" << endl;
+	cout << "                                                      Enter Code for Room: ";
+	cin.ignore();
+	cin >> roomNumber;
+
+	if(roomNumber < 1 || roomNumber > numoneRoom)
+	{
+		cout << "                     Error. Room Number is not Valid" << "\n";
+		return;
+	}
+	
+    if (!place[roomNumber - 1].available) 
+	{
+        cout << "                     [ Room 30" << roomNumber << " is already Occupied, if you want to book in room " << roomNumber << " choose OPTION [3] to Rebook a Room. ]" << endl;
+    } 	
+	else 
+	{
+		cout << "                                                      Enter Day: ";
+		cin.ignore();
+		cin >> day;
+		cout << "                                                      Enter Time: ";
+		cin.ignore();
+		getline(cin,time);
+        cout << "                                                      Enter Section: ";
+        getline(cin,section);
+        
+        do {
+        cout << "                                                      Enter Capacity [1 - 50 only]: ";
+        cin >> numofstudents;
+	    } while (roomcapacity < numofstudents);	
+	
+	
+        place[roomNumber - 1].available = false;
+        place[roomNumber - 1].section = section;
+		place[roomNumber - 1].day = day;
+		place[roomNumber - 1].time = time;
+		place[roomNumber - 1].numofstudents = numofstudents;
+       	cout << endl;
+       cout <<"                     [ Successfully Booked Room 30" << roomNumber << " by " << section << "on " << day << " at " << time << " with a capacity of " << numofstudents << " ]\n";
+		cout << endl;
+    }
+}
+
+void RebookRoom(Room rooms[]) 
+{
+    int roomNumber, numofstudents;
+    string section, time, day;
+
+    cout << "                                   [code]             [room]                    [day] " << endl;
+	cout << "                                     [1]             Room 101                   Sunday  " << endl;
+	cout << "                                     [2]             Room 102                   Monday " << endl;
+	cout << "                                     [4]             Room 104                   Wednesday" << endl;
+	cout << "                                     [5]             Room 105                   Thursday" << endl;
+	cout << "                                     [6]             Room 106                   Friday" << endl;
+	cout << "                                                                                Saturday" << endl;
+	cout << endl;
+	cout << "                           ===========================================================================" << endl;
+	cout << "                                                      Enter Code for Room: ";
+    cin >> roomNumber;
+
+    if (roomNumber < 1 || roomNumber > numoneRoom) 
+	{
+        cout << "Error: Invalid Room Number." << "\n";
+        return;
+    }
+
+    if (!rooms[roomNumber - 1].available) 
+	{
+        cout << "                     [ Room 10" << roomNumber << " is already occupied" << " this " << rooms[roomNumber - 1].day << " at " << rooms[roomNumber - 1].time << " with a capacity of " << rooms[roomNumber - 1].numofstudents <<" ]" << endl;
+		cout << "                                                      Enter Day: ";
+        cin.ignore();
+        getline(cin, day);
+        cout << "                                                      Enter new Time: ";
+        getline(cin, time);
+        cout << "                                                      Enter Section Name: ";
+        getline(cin, section);
+        
+        do {
+        cout << "                                                      Enter Capacity (1 to 50 only): ";
+        cin >> numofstudents;
+	    }while (roomcapacity < numofstudents);
+
+
+        rooms[roomNumber - 1].newsection = rooms[roomNumber - 1].section;
+        rooms[roomNumber - 1].newday = rooms[roomNumber - 1].day;
+        rooms[roomNumber - 1].newtime = rooms[roomNumber - 1].time;
+        rooms[roomNumber - 1].newnumofstudents = rooms[roomNumber - 1].numofstudents;
+
+        rooms[roomNumber - 1].section = section;
+        rooms[roomNumber - 1].day = day;
+        rooms[roomNumber - 1].time = time;
+        rooms[roomNumber - 1].numofstudents = numofstudents;
+
+        cout << "                     [ Room 10" << roomNumber << " has a new schedule by " << section << " on " << day << " at " << time << " with a capacity of " << numofstudents << " ]" << endl;
+    } 
+	else 
+	{
+        cout << "                     [ Room 10" << roomNumber << " is available. Use 'Book Room' option for a new booking." << " ]" << endl;
+    }
+}
+
+void RebookRoom(secondfloor floors[]) 
+{
+    int roomNumber, numofstudents;
+    string section, time, day;
+
+    cout << "                                   [code]             [room]                    [day] " << endl;
+	cout << "                                     [1]             Room 201                   Sunday  " << endl;
+	cout << "                                     [2]             Room 202                   Monday " << endl;
+	cout << "                                     [4]             Room 204                   Wednesday" << endl;
+	cout << "                                     [5]             Room 205                   Thursday" << endl;
+	cout << "                                     [6]             Room 206                   Friday" << endl;
+	cout << "                                                                                Saturday" << endl;
+	cout << endl;
+	cout << "                           ===========================================================================" << endl;
+	cout << "                                                      Enter Code for Room: ";
+    cin >> roomNumber;
+
+    if (roomNumber < 1 || roomNumber > numoneRoom) 
+	{
+        cout << "Error: Invalid Room Number." << "\n";
+        return;
+    }
+
+    if (!floors[roomNumber - 1].available) 
+	{ 
+        cout << "                     [ Room 20" << roomNumber << " is already occupied" << " this " << floors[roomNumber - 1].day << " at " << floors[roomNumber - 1].time << " with a capacity of " << floors[roomNumber - 1].numofstudents <<" ]" << endl;
+		cout << "                                                      Enter Day: ";
+        cin.ignore();
+        getline(cin, day);
+        cout << "                                                      Enter new Time: ";
+        getline(cin, time);
+        cout << "                                                      Enter Section Name: ";
+        getline(cin, section);
+        
+        do {
+        cout << "                                                      Enter Capacity (1 to 50 only): ";
+        cin >> numofstudents;
+	    }while (roomcapacity < numofstudents);
+
+
+        floors[roomNumber - 1].newsection = floors[roomNumber - 1].section;
+        floors[roomNumber - 1].newday = floors[roomNumber - 1].day;
+        floors[roomNumber - 1].newtime = floors[roomNumber - 1].time;
+        floors[roomNumber - 1].newnumofstudents = floors[roomNumber - 1].numofstudents;
+
+        floors[roomNumber - 1].section = section;
+        floors[roomNumber - 1].day = day;
+        floors[roomNumber - 1].time = time;
+        floors[roomNumber - 1].numofstudents = numofstudents;
+
+        cout << "                     [ Room 20" << roomNumber << " has a new schedule by " << section << " on " << day << " at " << time << " with a capacity of " << numofstudents << " ]";
+    } 
+	else 
+	{
+        cout << "                     [ Room 20" << roomNumber << " is available. Use 'Book Room' option for a new booking." << " ]" << endl;
+    }
+}
+
+void RebookRoom(thirdfloor place[]) 
+{
+    int roomNumber, numofstudents;
+    string section, time, day;
+
+   	cout << "                                   [code]             [room]                    [day] " << endl;
+	cout << "                                     [1]             Room 301                   Sunday  " << endl;
+	cout << "                                     [2]             Room 302                   Monday " << endl;
+	cout << "                                     [4]             Room 304                   Wednesday" << endl;
+	cout << "                                     [5]             Room 305                   Thursday" << endl;
+	cout << "                                     [6]             Room 306                   Friday" << endl;
+	cout << "                                                                                Saturday" << endl;
+	cout << endl;
+	cout << "                           ===========================================================================" << endl;
+	cout << "                                                      Enter Code for Room: ";
+    cin >> roomNumber;
+
+    if (roomNumber < 1 || roomNumber > numoneRoom) 
+	{
+        cout << "Error: Invalid Room Number." << "\n";
+        return;
+    }
+
+    if (!place[roomNumber - 1].available) 
+	{
+        cout << "                     [ Room 30" << roomNumber << " is already occupied" << " this " << place[roomNumber - 1].day << " at " << place[roomNumber - 1].time << " with a capacity of " << place[roomNumber - 1].numofstudents <<" ]" << endl;
+		cout << "                                                      Enter Day: ";
+        cin.ignore();
+        getline(cin, day);
+        cout << "                                                      Enter new Time: ";
+        getline(cin, time);
+        cout << "                                                      Enter Section Name: ";
+        getline(cin, section);
+        
+        do {
+        cout << "Enter Capacity (1 to 50 only): ";
+        cin >> numofstudents;
+	    }while (roomcapacity < numofstudents);
+
+
+        place[roomNumber - 1].newsection = place[roomNumber - 1].section;
+        place[roomNumber - 1].newday = place[roomNumber - 1].day;
+        place[roomNumber - 1].newtime = place[roomNumber - 1].time;
+        place[roomNumber - 1].newnumofstudents = place[roomNumber - 1].numofstudents;
+
+        place[roomNumber - 1].section = section;
+        place[roomNumber - 1].day = day;
+        place[roomNumber - 1].time = time;
+        place[roomNumber - 1].numofstudents = numofstudents;
+
+        cout << "                     [ Room 30" << roomNumber << " has a new schedule by " << section << " on " << day << " at " << time << " with a capacity of " << numofstudents << " ]" << endl;
+    } 
+	else 
+	{
+        cout << "                     [ Room 30" << roomNumber << " is available. Use 'Book Room' option for a new booking." << " ]" << endl;
+    }
+}
+
+int main()
+{
+	Room rooms[numoneRoom];
+	secondfloor floors[numtwoRoom];
+	thirdfloor place[numthreeRoom];
+    IntoneRooms(rooms);
+	InttwoRooms(floors);
+	IntthreeRooms(place);
+	cout << "                           ===========================================================================" << endl;
+	cout << "                                   UNIVERSITY        CLASSROOM     AVAILABILITY       SYSTEM" << endl;
+	cout << "                           ===========================================================================" << endl;
+	cout << endl;
+	cout << "                                 ====     ====        =========       =======         ===========" << endl;
+	cout << "                                 ====     ====      ===========     ============     ============" << endl;
+	cout << "                                 ====     ====     ====    ====     ====    ====     ====" << endl;
+	cout << "                                 ====     ====     ====             ====    ====     =======" << endl;
+	cout << "                                 ====     ====     ====             ============        ========" << endl;
+	cout << "                                 ====     ====     ====             ============            =======" << endl;
+	cout << "                                 =============     =====   ====     ====    ====               ====" << endl;
+	cout << "                                  ===========       ===========     ====    ====       ============" << endl;
+	cout << "                                    =======          =========      ====    ====      ===========" << endl;
+	cout << endl;
+	cout << "                           ===========================================================================" << endl;
+	cout << "                                          CREATED BY : NIGEL  |  LENARD  |  EDRICKA" << endl;
+	cout << "                           ===========================================================================" << endl;
+	cout << endl;
+	cout << endl; 
+
+	int choice;
+	int available_floor;
+	int book_floor;
+	int rebook_floor;
+	do {
+	
+	cout << "                                   ===========================================================" << endl;
+	cout << "                                                 Enter [1] to Check available Rooms" << endl;
+	cout << "                                                 Enter [2] to Book Room" << endl;
+	cout << "                                                 Enter [3] to Rebook a Room" << endl;
+	cout << "                                                 Enter [4] to Exit" << endl;
+	cout << "                                   ===========================================================" << endl;
+	cout << endl;
+	cout << endl;
+	cout << "                                                      Please enter mode: ";
+	cin >> choice;
+	system("cls");
+
+	switch (choice) {
+			case 1:
+				printmessage ();
+				cout << "                                                      ===== Choose Floor =====" << endl;
+				cout << endl;
+				cout << "                                             [code]                             [floor]" << endl;
+				cout << "                                               [1]                             1st Floor" << endl;
+				cout << "                                               [2]                             2nd Floor" << endl;
+				cout << "                                               [3]                             3rd Floor" << endl;
+				cout << endl;
+				cout << "                                              ======================================" << endl;
+				cout << "                                                           Enter Floor: ";
+				cin >> available_floor;
+				cout << endl;
+				system("cls");
+
+				if (available_floor == 1){
+					printmessage ();
+					cout << "                                                      ===== First Floor =====" << endl;
+					cout << endl;
+					DisplayoneRooms(rooms);
+					cout << endl;
+				}
+				else if (available_floor == 2){
+					printmessage ();
+					cout << "                                                      ===== Second Floor =====" << endl;
+					cout << endl;
+					DisplaytwoRooms(floors);
+					cout << endl;
+				}
+				else if (available_floor == 3){
+					printmessage ();
+					cout << "                                                      ===== Third Floor =====" << endl;
+					cout << endl;
+					DisplaythreeRooms(place);
+					cout << endl;
+				}
+				else {
+					printmessage ();
+					cout << "Invalid choice. Please try again." << endl;
+				}
+				break;
+			case 2:
+				printmessage ();
+				cout << "                                                      ===== Choose Floor =====" << endl;
+				cout << endl;
+				cout << "                                             [code]                             [floor]" << endl;
+				cout << "                                               [1]                             1st Floor" << endl;
+				cout << "                                               [2]                             2nd Floor" << endl;
+				cout << "                                               [3]                             3rd Floor" << endl;
+				cout << endl;
+				cout << "                                              ======================================" << endl;
+				cout << "                                                           Enter Floor: ";
+				cin >> book_floor;
+				cout << endl;
+				system("cls");
+
+				if (book_floor == 1){
+					printmessage ();
+					cout << "                                                      ===== First Floor =====" << endl;
+					cout << endl;
+					Bookrooms(rooms);
+					cout << endl;
+				}
+				else if (book_floor == 2){
+					printmessage ();
+					cout << "                                                      ===== Second Floor =====" << endl;
+					cout << endl;
+					Bookrooms(floors);
+					cout << endl;
+				}
+				else if (book_floor == 3){
+					printmessage ();
+					cout << "                                                      ===== Third Floor = ====" << endl;
+					cout << endl;
+					Bookrooms(place);
+					cout << endl;
+				}
+				else {
+					printmessage ();
+					cout << "Invalid choice. Please try again." << endl;
+				}
+				break;
+			case 3:
+				printmessage ();
+				cout << "                                                      ===== Choose Floor =====" << endl;
+				cout << endl;
+				cout << "                                             [code]                             [floor]" << endl;
+				cout << "                                               [1]                             1st Floor" << endl;
+				cout << "                                               [2]                             2nd Floor" << endl;
+				cout << "                                               [3]                             3rd Floor" << endl;
+				cout << endl;
+				cout << "                                              ======================================" << endl;
+				cout << "                                                           Enter Floor: ";
+				cin >> rebook_floor;
+				cout << endl;
+				system("cls");
+
+				if (rebook_floor == 1){
+					printmessage ();
+					cout << "                                                      ===== First Floor =====" << endl;
+					cout << endl;
+					RebookRoom(rooms);
+					cout << endl;
+				}
+				else if (rebook_floor == 2){
+					printmessage ();
+					cout << "                                                      ===== Second Floor =====" << endl;
+					cout << endl;
+					RebookRoom(floors);
+					cout << endl;
+				}
+				else if (rebook_floor == 3){
+					printmessage ();
+					cout << "                                                      ===== Third Floor =====" << endl;
+					cout << endl;
+					RebookRoom(place);
+					cout << endl;
+				}
+				else {
+					printmessage ();
+					cout << "Invalid choice. Please try again." << endl;
+				}
+				break;
+			case 4:
+				printmessage ();
+				cout << "Exiting the system. Goodbye!" << "\n";
+			default:
+				printmessage ();
+                cout << "Invalid choice. Please try again." << "\n";
+        }
+    } while (choice != 10);
+
+	getch();
+	return 0;
+}
