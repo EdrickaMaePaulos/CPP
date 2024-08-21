@@ -1,0 +1,56 @@
+#include <conio.h>
+#include <iostream>
+#include <float.h>
+using namespace std;
+
+int main()
+{
+	int choice;
+	float length;
+	float width; 
+
+	cout << "SOLVE FOR RECTANGLE'S...\n";
+	cout << "1. Perimeter\n";
+	cout << "2. Area\n";
+	cout << "_________________________________________________________________________________________________\n";
+	cout << "\n";
+	cout << "Enter Choice: ";
+	cin >> choice;
+	
+	if (choice == 1) {
+		cout << "Enter the length of the rectangle: ";
+		cin >> length; 
+		cout << "Enter the width of the rectangle: ";
+		cin >> width;
+		cout << " Perimeter = " << 2*length+2*width <<".\n";
+	}
+
+	else {
+		cout << "Enter the length of the rectangle: ";
+		cin >> length;
+		cout << "Enter the width of the rectangle: ";
+		cin >> width;
+		cout << " Area = " << length*width <<".\n";
+	}
+	cout<< "\n"; 
+	cout << "Enter Choice: ";
+	cin >> choice;
+
+	if (choice == 2) {
+		cout << "Enter the length of the rectangle: ";
+		cin >> length;
+		cout << "Enter the width of the rectangle: ";
+		cin >> width;
+		cout << " Area = " << length*width <<".\n";
+	}
+	else {
+		cout << "Enter the length of the rectangle: ";
+		cin >> length; 
+		cout << "Enter the width of the rectangle: ";
+		cin >> width;
+		cout << " Perimeter = " << 2*length+2*width <<".\n";
+	}
+
+	getch();
+	return 0;
+}
