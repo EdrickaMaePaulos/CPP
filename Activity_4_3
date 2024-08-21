@@ -1,0 +1,57 @@
+#include <iostream>
+#include <conio.h>
+using namespace std;
+int main()
+{
+
+	int year_now,month_now, age_now_years, age_now_months, another_year,another_month, year_born, month_born, another_age;
+	int age_now, total_months;
+	cout << "Enter the current year \t\t\t\t\t\t\t: ";
+	cin >> year_now;
+	cout << endl;
+	cout << "Enter the current month (a number from 1 to 12) \t\t\t: ";
+	cin >> month_now;
+	cout << endl;
+
+	cout << "Enter your current age in years\t\t\t\t\t\t: ";
+	cin >> age_now;
+	cout << endl;
+
+	cout << "Enter the month in which you were born (a number from 1 to 12) \t\t: ";
+	cin >> month_born;
+	cout << endl;
+
+		year_born = year_now - age_now;
+
+    if (month_now < month_born) 
+	{
+        year_born--;
+    }
+	cout << "Enter the year for which you wish to know your age \t\t\t: ";
+	cin >> another_year;
+	cout << endl;
+	cout << "Enter the month in this year \t\t\t\t\t\t: ";
+	cin >> another_month;
+	cout << endl;
+   
+    if (another_year >= year_born) {
+        total_months = (another_year - year_born) * 12 + another_month - month_born;
+
+        age_now_years = total_months / 12;
+        age_now_months = total_months % 12;
+
+        cout << "Your age in " << another_month << "/" << another_year << "\t\t\t\t\t\t\t: " << age_now_years << " years and " << age_now_months << " months." << endl;
+    }
+    else if (another_year <= year_born) 
+	{
+        cout << "\t\t\t\tYou weren't even born in " << another_year << "!" << endl;
+    }
+
+    if ( age_now_years >= 150)
+	{
+        cout << "\t\t\t\tSorry, but you'll probably be dead by " << another_year << "!" << endl;
+    }
+
+    getch();
+    return 0;
+}
