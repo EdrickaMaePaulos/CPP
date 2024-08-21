@@ -1,0 +1,42 @@
+#include <iostream>
+#include <conio.h>
+using namespace std;
+int main()
+{
+
+	int year_now, age_now, another_year, another_age, year_born;
+
+	cout << "Enter the current year \t\t\t\t\t\t\t\t\t: ";
+	cin >> year_now;
+	cout << endl;
+
+	cout << "Enter your age this year in years\t\t\t\t\t\t\t: ";
+	cin >> age_now;
+	cout << endl;
+
+	year_born = year_now - age_now;
+
+	cout << "Your were born in \t\t\t\t\t\t\t\t\t: " << year_born <<endl;
+	cout << endl;
+
+	cout << "Enter the year for which you wish to know your age \t\t\t\t\t: ";
+	cin >> another_year;
+	cout << endl;
+
+	another_age = another_year - year_born;
+
+	if (another_year >= year_born)
+	{
+		cout << "Your age in " << another_year << "\t\t\t\t\t\t\t\t: ";
+
+		cout << another_age << "\n";
+
+	}
+	else if (another_year <= year_born)
+	{
+		cout << "\t\t\t\tYou weren't even born in " << another_year << "!\n";
+	}
+
+getch();
+return 0;
+}
