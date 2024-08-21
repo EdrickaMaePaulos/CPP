@@ -1,0 +1,18 @@
+#include <iostream>
+#include <conio.h>
+#include <float.h>
+using namespace std;
+
+int main()
+{
+	float radius;
+	float pi = 3.1416;
+
+	cout << "Circle's Area: (3.1416)r^2" "\n" ;
+	cout << "Enter the radius: ";
+	cin >> radius;	
+	cout << "Area of the Circle: " << pi*radius*radius << ".\n";
+
+	getch();
+	return 0;
+}
