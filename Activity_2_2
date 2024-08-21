@@ -1,0 +1,26 @@
+#include <iostream>
+#include <conio.h>
+using namespace std;
+
+int main()
+{
+	float q1;
+	float q2;
+	float q3;
+	float sum;
+	float ave;
+
+	cout << "Enter Quiz 1 Score: ";
+	cin >> q1;
+	cout << "Enter Quiz 2 Score: ";
+	cin >> q2;
+	cout << "Enter Quiz 3 Score: ";
+	cin >> q3;
+	sum = q1+q2+q3;
+	ave = sum/3;
+	cout << "Average: " <<ave;
+	
+
+	getch();
+	return 0;
+}
