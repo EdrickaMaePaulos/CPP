@@ -1,0 +1,84 @@
+#include <iostream>
+#include <conio.h>
+#include <string>
+using namespace std;
+
+int main()
+{
+	string firstname, lastname, classification, section, subject, department;
+	string srcode;
+	float pre, mid, semi, final, grade;
+	float exercises, exer, classstanding, standing, major;
+
+	cout << "Enter student's Name" << endl;
+	cout << "First Name\t: ";
+	getline(cin,firstname);
+	cout << "Last Name\t: ";
+	getline(cin,lastname);
+	cout << endl;
+
+	cout << "Choose your classification ";
+	cout << "(Freshman, Sophomore, Junior, Senior)" << endl;
+	getline(cin,classification);
+	cout << endl;
+
+	cout << "Enter your Section\t\t: ";
+	getline(cin,section);
+	cout << endl;
+
+	cout << "Enter Sr Code\t\t\t: ";
+	getline(cin,srcode);
+	cout << endl;
+
+	cout << "Enter Department/College\t: ";
+	getline(cin, department);
+	cout << endl;
+
+	cout << "Enter Subject\t\t\t: ";
+	getline(cin, subject);
+	cout << endl;
+
+	cout << "Enter Marks in Major Exams" << endl;
+	cout << "Prelim:\t\t";
+	cin >> pre;
+
+	cout << "Midterm:\t";
+	cin >> mid;
+
+	cout << "SemiFinal:\t";
+	cin >> semi;
+
+	cout << "Final:\t\t";
+	cin >> final;
+
+	cout << "Enter Grade in Exercises:\t";
+	cin >> exer;
+
+	cout << "Enter Grade in Class Standing:\t";
+	cin >> standing;
+	cout << endl;
+
+	major = ((pre + mid + semi + final)/4 * 0.60);
+	exercises=exer*.30;
+	classstanding = standing * .10;
+
+	grade = major + exercises + classstanding;
+
+	cout << "***STUDENT INFORMATION***" << endl;
+	cout << "Name\t\t\t: " << firstname << " " << lastname << endl;
+
+	cout << "Classification\t\t: " << classification << endl;
+
+	cout << "Section\t\t\t: " << section << endl;
+
+	cout << "Srcode\t\t\t: " << srcode << endl;
+
+	cout << "Department/ College\t: " << department << endl;
+
+	cout << "Subject\t\t\t: " << subject << endl;
+
+	cout << "Final Grade\t\t: " << grade << endl;
+
+	getch();
+	return 0;
+}
